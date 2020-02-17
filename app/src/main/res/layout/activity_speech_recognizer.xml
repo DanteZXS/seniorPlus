@@ -8,14 +8,25 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnSpeak"
+        android:id="@+id/btnSpeechToText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Press to speak"/>
 
+    <Button
+        android:id="@+id/btnTextToSpeech"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press to speak out the text"/>
+
     <TextView
-        android:id="@+id/txtText"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        android:id="@+id/txtSpeechToText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/txtTextToSpeech"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

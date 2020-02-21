@@ -13,4 +13,16 @@
         android:layout_height="wrap_content"
         android:text="speechrecognizer" />
 
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sign up"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in"/>
+
 </LinearLayout>

@@ -12,5 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="speechrecognizer" />
+    <Button
+        android:id="@+id/chat_room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="chat room"/>
 
 </LinearLayout>

@@ -20,7 +20,6 @@ import java.util.List;
 import adaptar.AdapterUserItem;
 import util.UserItemMsg;
 
-impmport java.util.ArrayList;
 
 public class LayoutChats extends Fragment {
 

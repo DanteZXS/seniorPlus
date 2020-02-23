@@ -5,19 +5,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
     //前往speech recognizer的button
     private Button speechRecognizerBtn;
-    private Button chatRoomBtn;
+
+    private Button chatMainBtn;
+
+    //前往sign up的button
+    private Button btnSighUp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         speechRecognizerBtn = findViewById(R.id.speech_recognizer);
+        chatMainBtn = findViewById(R.id.chat_main);
+        btnSighUp.findViewById(R.id.btnSignUp);
+
+
+
         speechRecognizerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,12 +38,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        chatRoomBtn = findViewById(R.id.chat_room); chatRoomBtn.setOnClickListener(new View.OnClickListener() {
+
+         chatMainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ActivityChatMain.class);
                 startActivity(intent);
-           }
+           }});
+
+        btnSighUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+
         });
 
     }

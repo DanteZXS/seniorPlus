@@ -25,30 +25,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         speechRecognizerBtn = findViewById(R.id.speech_recognizer);
-<<<<<<< HEAD
         btnSighUp = findViewById(R.id.btnSignUp);
-=======
         chatMainBtn = findViewById(R.id.chat_main);
-        btnSighUp.findViewById(R.id.btnSignUp);
->>>>>>> e536eeb6d26087a674b36d4262207426982f18dd
-
 
 
         speechRecognizerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SpeechRecognizerActivity.class);
+                Intent intent = new Intent(MainActivity.this, SpeechRecognizerActivity.class);
                 startActivity(intent);
             }
         });
 
 
-         chatMainBtn.setOnClickListener(new View.OnClickListener() {
+        chatMainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ActivityChatMain.class);
+                Intent intent = new Intent(MainActivity.this, ActivityChatMain.class);
                 startActivity(intent);
-           }});
+            }
+        });
 
         btnSighUp.setOnClickListener(new View.OnClickListener() {
             @Override

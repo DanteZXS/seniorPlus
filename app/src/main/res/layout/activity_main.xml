@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:text="speechrecognizer" />
     <Button
-        android:id="@+id/chat_room"
+        android:id="@+id/chat_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="chat room"/>
+        android:text="chat main"/>
 
     <Button
         android:id="@+id/btnSignUp"

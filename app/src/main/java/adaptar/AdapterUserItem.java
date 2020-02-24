@@ -11,13 +11,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seniorplus.ActivityChatRoom;
-import com.example.seniorplus.LayoutChats;
 import com.example.seniorplus.R;
 
 import java.util.List;
 
 import util.ImageManager;
 import util.UserItemMsg;
+import view.LayoutChats;
 
 public class AdapterUserItem extends RecyclerView.Adapter<AdapterUserItem.BaseViewHolder> {
 

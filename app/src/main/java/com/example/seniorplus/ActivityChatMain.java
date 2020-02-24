@@ -16,6 +16,7 @@ import java.util.List;
 
 import adaptar.AdapterMainViewPager;
 import util.ImageManager;
+import view.LayoutChats;
 
 public class ActivityChatMain extends AppCompatActivity {
 

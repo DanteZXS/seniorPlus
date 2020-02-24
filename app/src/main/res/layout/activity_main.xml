@@ -12,6 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="speechrecognizer" />
+    <Button
+        android:id="@+id/chat_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="chat main"/>
 
     <Button
         android:id="@+id/btnSignUp"
@@ -19,10 +24,10 @@
         android:layout_height="wrap_content"
         android:text="sign up"/>
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log in"/>
+<!--    <Button-->
+<!--        android:id="@+id/btnLogin"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Log in"/>-->
 
 </LinearLayout>

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         speechRecognizerBtn = findViewById(R.id.speech_recognizer);
-        btnSighUp.findViewById(R.id.btnSignUp);
+        btnSighUp = findViewById(R.id.btnSignUp);
 
 
         speechRecognizerBtn.setOnClickListener(new View.OnClickListener() {

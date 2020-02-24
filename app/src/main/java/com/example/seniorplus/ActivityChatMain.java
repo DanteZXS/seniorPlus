@@ -52,11 +52,11 @@ public class ActivityChatMain extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         tabList.add(tabLayout.getTabAt(0));
-        tabList.add(tabLayout.getTabAt(1));
-        tabList.add(tabLayout.getTabAt(2));
+//        tabList.add(tabLayout.getTabAt(1));
+//        tabList.add(tabLayout.getTabAt(2));
         tabList.get(0).setIcon(R.drawable.msgunselected).setText("Chats");
-        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Contacts");
-        tabList.get(2).setIcon(R.drawable.momentunselected).setText("Moments");
+//        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Contacts");
+//        tabList.get(2).setIcon(R.drawable.momentunselected).setText("Moments");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

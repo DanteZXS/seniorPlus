@@ -16,6 +16,7 @@ import java.util.List;
 
 import adaptar.AdapterMainViewPager;
 import util.ImageManager;
+import view.DiaryFragment;
 import view.GalleryFragment;
 import view.LayoutChats;
 
@@ -45,8 +46,8 @@ public class ActivityChatMain extends AppCompatActivity {
         AdapterMainViewPager adapter = new AdapterMainViewPager(getSupportFragmentManager());
 
         adapter.addFragment(new LayoutChats());
+        adapter.addFragment(new DiaryFragment());
         adapter.addFragment(new GalleryFragment());
-//        adapter.addFragment(new LayoutMoments());
 
         viewPager.setAdapter(adapter);
 
@@ -54,10 +55,10 @@ public class ActivityChatMain extends AppCompatActivity {
 
         tabList.add(tabLayout.getTabAt(0));
         tabList.add(tabLayout.getTabAt(1));
-//        tabList.add(tabLayout.getTabAt(2));
+        tabList.add(tabLayout.getTabAt(2));
         tabList.get(0).setIcon(R.drawable.msgunselected).setText("Chats");
-        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Gallery");
-//        tabList.get(2).setIcon(R.drawable.momentunselected).setText("Moments");
+        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Diary");
+        tabList.get(2).setIcon(R.drawable.momentunselected).setText("Gallery");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

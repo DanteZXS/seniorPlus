@@ -12,7 +12,7 @@
 
         <view.TitleBar
             android:id="@+id/titleBar"
-            app:leftText="ZZChat"
+            app:leftText="FamilyPlus"
             app:leftTextColor="#ffffff"
             app:leftBackground="#00ffffff"
             app:rightText="+"

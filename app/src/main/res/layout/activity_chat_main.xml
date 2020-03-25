@@ -12,12 +12,12 @@
 
         <view.TitleBar
             android:id="@+id/titleBar"
-            app:leftText="FamilyPlus"
-            app:leftTextColor="#ffffff"
-            app:leftBackground="#00ffffff"
+            app:leftBackground="@drawable/returned"
+            app:titleTextSize="8sp"
+            app:titleTextColor="#ffffff"
             app:rightText="+"
             app:rightTextSize="10sp"
-            app:rightTextColor="#ffffff"
+            app:rightTextColor="#000000"
             app:rightBackground="#00ffffff"
             android:layout_width="match_parent"
             android:layout_height="50dp">

@@ -126,7 +126,7 @@ public class TitleBar extends RelativeLayout {
 
         tvTitle.setGravity(Gravity.CENTER);
 
-        setBackgroundColor(0x00ffff);
+        setBackgroundColor(0xFF01AAFF);
     }
 
     /**

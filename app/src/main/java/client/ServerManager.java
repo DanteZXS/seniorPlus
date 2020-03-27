@@ -11,7 +11,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class ServerManager extends Thread {
-    private static final String IP = "192.168.191.1";
+    private static final String IP = "192.168.1.245";
     private Socket socket;
     private String username;
     private int iconID;

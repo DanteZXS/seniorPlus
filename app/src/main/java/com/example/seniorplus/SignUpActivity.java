@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 String password = etLoginPassword.getText().toString();
                 if (login(username, password)) {
                     serverManager.setUsername(username);
-                    Intent intent = new Intent(this, MainActivity.class);
+                    Intent intent = new Intent(this, ActivityChatMain.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -93,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             }
             case R.id.btn_register: {
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, ActivityChatMain.class);
                 startActivity(intent);
                 finish();
                 break;

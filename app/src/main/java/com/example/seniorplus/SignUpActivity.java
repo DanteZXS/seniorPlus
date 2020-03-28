@@ -13,6 +13,9 @@ import java.sql.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,9 +42,9 @@ public class SignUpActivity extends AppCompatActivity{
 //
 //    private ServerManager serverManager = ServerManager.getServerManager();
 
-    private EditText username;
-    private EditText password;
-    private Button register;
+    private EditText usernameEt;
+    private EditText passwordEt;
+    private Button registerBtn;
 
     private final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private final static String DB_URL = "jdbc:mysql://database-mysql.c1fqlmzaunrc.us-east-2.rds.amazonaws.com:3306/seniorplus?useSSL=false";
@@ -53,6 +56,7 @@ public class SignUpActivity extends AppCompatActivity{
     private Connection con;
     private Statement stmt;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,14 +64,18 @@ public class SignUpActivity extends AppCompatActivity{
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_upctivity);
 //        initViews();
-        username = findViewById(R.id.register_username);
-        password = findViewById(R.id.register_password);
-        register = findViewById(R.id.register_btn);
+        usernameEt = findViewById(R.id.register_username);
+        passwordEt = findViewById(R.id.register_password);
+        registerBtn = findViewById(R.id.register_btn);
 
-        register.setOnClickListener(new View.OnClickListener() {
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("AAA",username.getText().toString()+","+password.getText().toString());
+
+                Log.e("AAA",usernameEt.getText().toString()+","+passwordEt.getText().toString());
+                final String username = usernameEt.getText().toString();
+                final String password = passwordEt.getText().toString();
                 final String str = "select * from users";
 
                 new Thread() {
@@ -84,8 +92,15 @@ public class SignUpActivity extends AppCompatActivity{
                             Log.e("AAA","aaaaa" + (re ==null));
                             if (re != null)
                                 Log.i("标记", "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
-                            while (re.next())
+                            while (re.next()){
                                 Log.i("Data", re.getString("username"));
+                            }
+
+                            String sql = "INSERT INTO users (username,password) " +
+                                    "VALUES(" + "'"+username+"'" +", "+"'"+password+"'"+")";
+                            stmt.executeUpdate(sql);//原文出自【易百教程】，商业转载请联系作者获得授权，非商业请保留原文链接：https://www.yiibai.com/jdbc/jdbc-insert-records.html
+
+
 
                         } catch (SQLException e) {
                             Log.e("连接失败", e.toString());

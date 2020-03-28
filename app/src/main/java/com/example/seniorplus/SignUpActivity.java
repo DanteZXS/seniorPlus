@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.TextView;
-
+import java.sql.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +43,16 @@ public class SignUpActivity extends AppCompatActivity{
     private EditText password;
     private Button register;
 
+    private final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private final static String DB_URL = "jdbc:mysql://database-mysql.c1fqlmzaunrc.us-east-2.rds.amazonaws.com:3306/seniorplus?useSSL=false";
+
+    private final static String USER = "admin";
+    private final static String PASS = "zxs19970509";
+
+    private ResultSet re;
+    private Connection con;
+    private Statement stmt;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +68,30 @@ public class SignUpActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Log.e("AAA",username.getText().toString()+","+password.getText().toString());
+                final String str = "select * from users";
+
+                new Thread() {
+                    public void run() {
+                        try {
+                            Class.forName(JDBC_DRIVER);
+                        } catch (ClassNotFoundException e) {
+                            Log.e("驱动加载失败", e.toString());
+                        }
+                        try {
+                            con = DriverManager.getConnection(DB_URL, USER, PASS);
+                            stmt = con.createStatement();
+                            re = stmt.executeQuery(str);
+                            Log.e("AAA","aaaaa" + (re ==null));
+                            if (re != null)
+                                Log.i("标记", "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+                            while (re.next())
+                                Log.i("Data", re.getString("username"));
+
+                        } catch (SQLException e) {
+                            Log.e("连接失败", e.toString());
+                        }
+                    }
+                }.start();
             }
         });
     }

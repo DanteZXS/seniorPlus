@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     //前往sign up的button
     private Button btnSighUp;
 
+    //前往login的button
+    private Button btnLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         speechRecognizerBtn = findViewById(R.id.speech_recognizer);
         btnSighUp = findViewById(R.id.btnSignUp);
         chatMainBtn = findViewById(R.id.chat_main);
+        btnLogin = findViewById(R.id.btnLogin);
 
 
         speechRecognizerBtn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
         });
 
     }

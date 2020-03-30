@@ -1,14 +1,13 @@
 package com.example.seniorplus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
+
+import client.ServerManager;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private ResultSet re;
     private Connection con;
     private Statement stmt;
+    private ServerManager server=ServerManager.getServerManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         usernameEt = findViewById(R.id.login_username);
         passwordEt = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.login_btn);
+        server.start();
+
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(!map.containsKey(username) || !map.get(username).equals(password)){
                                 //Toast.makeText(LoginActivity.this,"Wrong UserName or Password",Toast.LENGTH_SHORT).show();
                             }else{
+                                server.setUsername(username);
                                 Intent intent = new Intent(LoginActivity.this, ActivityChatMain.class);
                                 startActivity(intent);
                             }

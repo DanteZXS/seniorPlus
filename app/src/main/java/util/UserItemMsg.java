@@ -34,11 +34,11 @@ public class UserItemMsg {
         this.username = username;
     }
 
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
+//    public String getSign() {
+//        return sign;
+//    }
+//
+//    public void setSign(String sign) {
+//        this.sign = sign;
+//    }
 }

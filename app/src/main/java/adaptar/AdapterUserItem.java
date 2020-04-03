@@ -38,7 +38,7 @@ public class AdapterUserItem extends RecyclerView.Adapter<AdapterUserItem.BaseVi
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.ivAvatar.setImageResource(ImageManager.imagesAvatar[userItemMsgList.get(position).getIconID()]);
         holder.tvUsername.setText(userItemMsgList.get(position).getUsername());
-        holder.tvSign.setText(userItemMsgList.get(position).getSign());
+        //holder.tvSign.setText(userItemMsgList.get(position).getSign());
         holder.ivAvatar.setTag(userItemMsgList.get(position).getIconID());
     }
 
@@ -57,7 +57,7 @@ public class AdapterUserItem extends RecyclerView.Adapter<AdapterUserItem.BaseVi
             super(itemView);
             ivAvatar = (ImageView) itemView.findViewById(R.id.iv_item_avatar);
             tvUsername = (TextView) itemView.findViewById(R.id.tv_item_username);
-            tvSign = (TextView) itemView.findViewById(R.id.tv_item_sign);
+            //tvSign = (TextView) itemView.findViewById(R.id.tv_item_sign);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,7 +67,7 @@ public class AdapterUserItem extends RecyclerView.Adapter<AdapterUserItem.BaseVi
                     context.startActivity(intent);
 
                     UserItemMsg userItemMsg = new UserItemMsg();
-                    userItemMsg.setSign(tvSign.getText().toString());
+                    //userItemMsg.setSign(tvSign.getText().toString());
                     userItemMsg.setIconID((Integer) ivAvatar.getTag());
                     userItemMsg.setUsername(tvUsername.getText().toString());
 

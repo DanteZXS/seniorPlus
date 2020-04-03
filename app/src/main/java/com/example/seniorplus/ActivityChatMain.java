@@ -19,6 +19,7 @@ import util.ImageManager;
 import view.DiaryFragment;
 import view.GalleryFragment;
 import view.LayoutChats;
+import view.LayoutContacts;
 
 public class ActivityChatMain extends AppCompatActivity {
 
@@ -46,6 +47,7 @@ public class ActivityChatMain extends AppCompatActivity {
         AdapterMainViewPager adapter = new AdapterMainViewPager(getSupportFragmentManager());
 
         adapter.addFragment(new LayoutChats());
+        adapter.addFragment(new LayoutContacts());
         adapter.addFragment(new DiaryFragment());
         adapter.addFragment(new GalleryFragment());
 
@@ -56,14 +58,16 @@ public class ActivityChatMain extends AppCompatActivity {
         tabList.add(tabLayout.getTabAt(0));
         tabList.add(tabLayout.getTabAt(1));
         tabList.add(tabLayout.getTabAt(2));
+        tabList.add(tabLayout.getTabAt(3));
         tabList.get(0).setIcon(R.drawable.msgunselected).setText("Chats");
-        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Diary");
-        tabList.get(2).setIcon(R.drawable.momentunselected).setText("Gallery");
+        tabList.get(1).setIcon(R.drawable.contactsunselected).setText("Contacts");
+        tabList.get(2).setIcon(R.drawable.diaryunselected).setText("Diary");
+        tabList.get(3).setIcon(R.drawable.momentunselected).setText("Gallery");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                tabList.get(tab.getPosition()).setIcon(ImageManager.imageID[tab.getPosition() + 3]);
+                tabList.get(tab.getPosition()).setIcon(ImageManager.imageID[tab.getPosition() + 4]);
                 tabLayout.setTabTextColors(
                         ContextCompat.getColor(ActivityChatMain.this, R.color.colorBlack),
                         ContextCompat.getColor(ActivityChatMain.this, R.color.colorBlue)

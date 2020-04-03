@@ -15,9 +15,11 @@ public class ImageManager {
     public static final int[] imageID = {
             R.drawable.msgunselected,
             R.drawable.contactsunselected,
+            R.drawable.diaryunselected,
             R.drawable.momentunselected,
             R.drawable.msgselected,
             R.drawable.contactsselected,
+            R.drawable.diaryselected,
             R.drawable.momentselected
     };
 }

@@ -80,7 +80,6 @@ public class LoginActivity extends AppCompatActivity {
                                 //Toast.makeText(LoginActivity.this,"Wrong UserName or Password",Toast.LENGTH_SHORT).show();
                             }else{
                                 server.setUsername(username);
-                                //创建useritemlist试试
                                 Intent intent = new Intent(LoginActivity.this, ActivityChatMain.class);
                                 startActivity(intent);
                             }

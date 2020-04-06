@@ -17,7 +17,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import adaptar.AdapterChatMsg;
-import client.ParaseData;
 import client.ServerManager;
 import util.ChatMsg;
 import view.TitleBar;
@@ -53,7 +52,8 @@ public class ActivityChatRoom extends AppCompatActivity {
         btnSend = (Button) findViewById(R.id.btnSend);
         chatObj = getIntent().getStringExtra("username");
         titleBar.setTitleText(chatObj);
-        group = ParaseData.getAllGroupList(this).contains(chatObj) ? "0" : "1";
+        //group = ParaseData.getAllGroupList(this).contains(chatObj) ? "0" : "1";
+        group = "1";
         chatMsgList.clear();
         loadChatMsg();
         adapterChatMsgList = new AdapterChatMsg(ActivityChatRoom.this, R.layout.chat_other, chatMsgList);

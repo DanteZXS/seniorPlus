@@ -14,6 +14,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class SignUpActivity extends AppCompatActivity{
 //    private ServerManager serverManager = ServerManager.getServerManager();
@@ -92,8 +96,32 @@ public class SignUpActivity extends AppCompatActivity{
 
                             String sql = "INSERT INTO users (username,password) " +
                                     "VALUES(" + "'"+username+"'" +", "+"'"+password+"'"+")";
-                            stmt.executeUpdate(sql);//原文出自【易百教程】，商业转载请联系作者获得授权，非商业请保留原文链接：https://www.yiibai.com/jdbc/jdbc-insert-records.html
+                            stmt.executeUpdate(sql);
 
+                            //下面是获取指定用户(id=1)的好友id列表的代码
+                            Set<Integer> set = new HashSet<>();
+                            sql = "SELECT u1, u2 FROM seniorplus.friendship JOIN users ON friendship.u1 = users.id";
+                            re = stmt.executeQuery(sql);
+                            while(re.next()){
+                                if (re.getInt("u1")==1){
+                                    set.add(re.getInt("u2"));
+                                }
+                            }
+
+                            //接着找到他们的名字
+                            List<String> names = new ArrayList<>();
+                            sql = "select * from users";
+                            re = stmt.executeQuery(sql);
+                            while(re.next()){
+                                if (set.contains(re.getInt("id"))){
+                                    names.add(re.getString("username"));
+                                }
+                            }
+
+                            //查看好友列表
+                            for (int i = 0; i < names.size(); i++){
+                                Log.v("friends",names.get(i));
+                            }
 
 
                         } catch (SQLException e) {

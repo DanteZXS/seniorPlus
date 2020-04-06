@@ -68,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
                             con = DriverManager.getConnection(DB_URL, USER, PASS);
                             stmt = con.createStatement();
                             re = stmt.executeQuery(str);
-                            Log.e("AAA","aaaaa" + (re ==null));
                             if (re != null)
                                 Log.i("标记", "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
                             while (re.next()){

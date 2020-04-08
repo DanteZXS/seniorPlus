@@ -66,7 +66,7 @@ public class ServerManager extends Thread {
     public void sendMessage(Context context, String msg) {
         try {
             while (socket == null) ;
-            System.out.println(socket);
+            System.out.println(msg);
             if (bufferedWriter != null) {
 //                Log.d("TAG", "send : " + msg);
                 bufferedWriter.write(msg + "\n");

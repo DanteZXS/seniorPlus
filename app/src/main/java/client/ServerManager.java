@@ -109,7 +109,7 @@ public class ServerManager extends Thread {
         return iconID;
     }
 
-    public void setIconID(int iconID) {
-        this.iconID = iconID;
+    public void setIconID(int id) {
+        iconID = id;
     }
 }

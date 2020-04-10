@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private final static String USER = "admin";
     private final static String PASS = "zxs19970509";
+    private String str;
 
     private ResultSet re;
     private Connection con;
@@ -54,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 final String username = usernameEt.getText().toString();
                 final String password = passwordEt.getText().toString();
-                final String str = "select * from users";
+                str = "select * from users";
                 final Map<String,String> map = new HashMap<>();
 
                 new Thread() {
@@ -76,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
                             if(!map.containsKey(username) || !map.get(username).equals(password)){
-                                //Toast.makeText(LoginActivity.this,"Wrong UserName or Password",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this,"Wrong UserName or Password", Toast.LENGTH_SHORT).show();
                             }else{
                                 server.setUsername(username);
                                 Intent intent = new Intent(LoginActivity.this, ActivityChatMain.class);

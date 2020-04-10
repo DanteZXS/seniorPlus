@@ -127,7 +127,7 @@ public class LayoutContacts extends Fragment {
     }
 
     private void loadFriends() {
-        ServerManager serverManager = ServerManager.getServerManager();
+        final ServerManager serverManager = ServerManager.getServerManager();
         String userName = serverManager.getUsername();
         friStr = new ArrayList<>();
 //        List<String> friStr = ParaseData.getFriendList(context, userName);

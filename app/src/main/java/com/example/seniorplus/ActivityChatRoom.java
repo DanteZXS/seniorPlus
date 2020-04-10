@@ -66,7 +66,7 @@ public class ActivityChatRoom extends AppCompatActivity {
                     ChatMsg msg = new ChatMsg();
                     msg.setContent(content);
                     msg.setUsername(ServerManager.getServerManager().getUsername());
-                    msg.setIconID(ServerManager.getServerManager().getIconID());
+                    msg.setIconID((ServerManager.getServerManager().getIconID()));
                     msg.setMyInfo(true);
                     msg.setChatObj(chatObj);
                     msg.setGroup(group.equals("0") ? chatObj : " ");

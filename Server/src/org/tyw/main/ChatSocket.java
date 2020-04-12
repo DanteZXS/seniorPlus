@@ -163,28 +163,34 @@ public class ChatSocket extends Thread{
     	String sqlGroup = "SELECT * FROM GROUPS WHERE groupName = '" + chatObj+ "';";
     	try {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sqlGroup);
+			//ResultSet resultSet = statement.executeQuery(sqlGroup);
 			// gruop chat
-			if (resultSet.next()) {
-				// find all group members to send msg
-				String sql = "SELECT groupMemberName FROM GROUPINFO WHERE groupName = '" + chatObj + "';";
-				resultSet = statement.executeQuery(sql);
-				while (resultSet.next()) {					
-					// if user is online , then send.
-					for (SocketMsg SocketMsg : ChatManager.getChatManager().socketList) {
-						if (SocketMsg.getUsername().equals(resultSet.getString(1)) && !SocketMsg.getUsername().equals(username)) {
-							out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text, " + chatObj + "]";
-							SocketMsg.getChatSocket().sendMsg(out);
-						}
-					}
-				}
-			// private chat
-			} else {
-				for (SocketMsg socketManager : ChatManager.getChatManager().socketList) {
-					if (socketManager.getUsername().equals(chatObj)) {
-						out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text,  ]";
-						socketManager.getChatSocket().sendMsg(out);
-					}
+//			if (resultSet.next()) {
+//				// find all group members to send msg
+//				String sql = "SELECT groupMemberName FROM GROUPINFO WHERE groupName = '" + chatObj + "';";
+//				resultSet = statement.executeQuery(sql);
+//				while (resultSet.next()) {					
+//					// if user is online , then send.
+//					for (SocketMsg SocketMsg : ChatManager.getChatManager().socketList) {
+//						if (SocketMsg.getUsername().equals(resultSet.getString(1)) && !SocketMsg.getUsername().equals(username)) {
+//							out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text, " + chatObj + "]";
+//							SocketMsg.getChatSocket().sendMsg(out);
+//						}
+//					}
+//				}
+//			// private chat
+//			} else {
+//				for (SocketMsg socketManager : ChatManager.getChatManager().socketList) {
+//					if (socketManager.getUsername().equals(chatObj)) {
+//						out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text,  ]";
+//						socketManager.getChatSocket().sendMsg(out);
+//					}
+//				}
+//			}
+			for (SocketMsg socketManager : ChatManager.getChatManager().socketList) {
+				if (socketManager.getUsername().equals(chatObj)) {
+					out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text,  ]";
+					socketManager.getChatSocket().sendMsg(out);
 				}
 			}
 			out = "[ACKCHATMSG]:[1]";

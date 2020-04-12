@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-public class ServerManager extends Thread {
+public class ServerManager extends Thread{
     private static final String IP = "192.168.1.245";
     private Socket socket;
     private String username;
@@ -25,7 +25,7 @@ public class ServerManager extends Thread {
         return serverManager;
     }
 
-    private ServerManager() {
+    public ServerManager() {
         receiveChatMsg = new ReceiveChatMsg();
     }
 

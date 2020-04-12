@@ -2,6 +2,7 @@ package com.example.seniorplus;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,18 +37,22 @@ public class LoginActivity extends AppCompatActivity {
     private ResultSet re;
     private Connection con;
     private Statement stmt;
-    private ServerManager server=ServerManager.getServerManager();
+    private ServerManager server = ServerManager.getServerManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //强制使用main thread发送网络请求
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().
+                detectDiskWrites().detectNetwork().penaltyLog().build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().
+                detectLeakedClosableObjects().penaltyLog().penaltyDeath().build());
 
         usernameEt = findViewById(R.id.login_username);
         passwordEt = findViewById(R.id.login_password);
         loginBtn = findViewById(R.id.login_btn);
-        server.start();
-
+        new Thread(server).start();
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {

@@ -72,7 +72,6 @@ public class ActivityChatRoom extends AppCompatActivity {
                     msg.setGroup(group.equals("0") ? chatObj : " ");
                     if (sendToChatObj(msg.getContent())) {
                         ChatMsg.chatMsgList.add(msg);
-
                         chatMsgList.add(msg);
                         myMsg.setText("");
                     } else {
@@ -95,11 +94,11 @@ public class ActivityChatRoom extends AppCompatActivity {
         String msg = "[CHATMSG]:[" + chatObj + ", " + content + ", " + ServerManager.getServerManager().getIconID() +", Text]";
         ServerManager serverManager = ServerManager.getServerManager();
         serverManager.sendMessage(this, msg);
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         String ack = serverManager.getMessage();
         if (ack == null) {
             return false;

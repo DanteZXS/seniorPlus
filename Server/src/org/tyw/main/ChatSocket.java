@@ -160,11 +160,11 @@ public class ChatSocket extends Thread{
     		return;
     	}
     	String out = null;
-    	String sqlGroup = "SELECT * FROM GROUPS WHERE groupName = '" + chatObj+ "';";
-    	try {
-			Statement statement = connection.createStatement();
-			//ResultSet resultSet = statement.executeQuery(sqlGroup);
-			// gruop chat
+//    	String sqlGroup = "SELECT * FROM GROUPS WHERE groupName = '" + chatObj+ "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sqlGroup);
+//			// gruop chat
 //			if (resultSet.next()) {
 //				// find all group members to send msg
 //				String sql = "SELECT groupMemberName FROM GROUPINFO WHERE groupName = '" + chatObj + "';";
@@ -187,19 +187,20 @@ public class ChatSocket extends Thread{
 //					}
 //				}
 //			}
-			for (SocketMsg socketManager : ChatManager.getChatManager().socketList) {
-				if (socketManager.getUsername().equals(chatObj)) {
-					out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text,  ]";
-					socketManager.getChatSocket().sendMsg(out);
-				}
+//			
+//		} catch (SQLException e) {
+//			out = "[ACKCHATMSG]:[0]";
+//			sendMsg(out);
+//			e.printStackTrace();
+//		}
+    	for (SocketMsg socketManager : ChatManager.getChatManager().socketList) {
+			if (socketManager.getUsername().equals(chatObj)) {
+				out = "[GETCHATMSG]:[" + username + ", " + content + ", " + avatarID + ", Text,  ]";
+				socketManager.getChatSocket().sendMsg(out);
 			}
-			out = "[ACKCHATMSG]:[1]";
-			sendMsg(out);
-		} catch (SQLException e) {
-			out = "[ACKCHATMSG]:[0]";
-			sendMsg(out);
-			e.printStackTrace();
 		}
+		out = "[ACKCHATMSG]:[1]";
+		sendMsg(out);
     }
 
     private void dealState(String msg) {

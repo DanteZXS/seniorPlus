@@ -13,7 +13,7 @@ public class StartServers {
 			public void run() {
 				try {
 					MainWindow frame = MainWindow.getMainWindow();
-					DBManager dbManager = DBManager.getDBManager();
+					//DBManager dbManager = DBManager.getDBManager();
 					
 					ServerListener listener = new ServerListener();
 					
@@ -21,24 +21,25 @@ public class StartServers {
 						// Do something when servers stop
 						@Override
 						public void stop() {
-							try {
-								dbManager.getConnection().close();
-								MainWindow.getMainWindow().setShowMsg("DB connection is closed");
-							} catch (SQLException e) {
-								MainWindow.getMainWindow().setShowMsg("DB connection close failed");
-								e.printStackTrace();
-							}
+//							try {
+//								dbManager.getConnection().close();
+//								MainWindow.getMainWindow().setShowMsg("DB connection is closed");
+//							} catch (SQLException e) {
+//								MainWindow.getMainWindow().setShowMsg("DB connection close failed");
+//								e.printStackTrace();
+//							}
+							MainWindow.getMainWindow().setShowMsg("server connection is closed");
 						}
 						// Open servers
 						@Override
 						public void start() {
-							dbManager.addDBDriver();
-							dbManager.connectDB();
-							try {
-								dbManager.initDB();
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
+//							dbManager.addDBDriver();
+//							dbManager.connectDB();
+//							try {
+//								dbManager.initDB();
+//							} catch (Exception e) {
+//								e.printStackTrace();
+//							}
 							if (!listener.isAlive()) {
 								listener.start();
 							}

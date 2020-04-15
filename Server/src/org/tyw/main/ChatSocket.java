@@ -24,7 +24,7 @@ public class ChatSocket extends Thread{
 	private String message = null;
 	private BufferedReader bufferedReader;
 	private BufferedWriter bufferedWriter;
-    private Connection connection = DBManager.getDBManager().getConnection();
+    //private Connection connection = DBManager.getDBManager().getConnection();
     private SocketMsg socketMsg;
 	
 	public ChatSocket(Socket s) {
@@ -117,18 +117,18 @@ public class ChatSocket extends Thread{
     }
     
     private void dealGetAllGroupList(String msg) {
-    	String out = null;
-    	String sql = "SELECT groupName FROM groups;";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			while (resultSet.next()) {
-				out += "[ACKGETALLGROUPLIST]:[" + resultSet.getString(1) + "] ";
-			}
-			sendMsg(out);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String out = null;
+//    	String sql = "SELECT groupName FROM groups;";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			while (resultSet.next()) {
+//				out += "[ACKGETALLGROUPLIST]:[" + resultSet.getString(1) + "] ";
+//			}
+//			sendMsg(out);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealAddGroup(String msg) {
@@ -207,148 +207,148 @@ public class ChatSocket extends Thread{
     }
 
     private void dealGetFriendProfile(String msg) {
-    	String friendName = null;
-    	String p = "\\[GETFRIENDPROFILE\\]:\\[(.*)\\]";
-    	Pattern pattern = Pattern.compile(p);
-    	Matcher matcher = pattern.matcher(msg);
-    	if (matcher.find()) {
-    		friendName = matcher.group(1);
-    	} else {
-			return ;
-		}
-    	String out = null;
-    	String sql = "SELECT avatar, sign, background, state FROM userinfo WHERE username = '" + friendName + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			if (resultSet.next()) {
-				out = "[ACKGETFRIENDPROFILE]:[" + resultSet.getString(1) + ", " + resultSet.getString(2) + ", "
-						+ "" + resultSet.getString(3) + ", " + resultSet.getString(4) + "]";
-				sendMsg(out);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String friendName = null;
+//    	String p = "\\[GETFRIENDPROFILE\\]:\\[(.*)\\]";
+//    	Pattern pattern = Pattern.compile(p);
+//    	Matcher matcher = pattern.matcher(msg);
+//    	if (matcher.find()) {
+//    		friendName = matcher.group(1);
+//    	} else {
+//			return ;
+//		}
+//    	String out = null;
+//    	String sql = "SELECT avatar, sign, background, state FROM userinfo WHERE username = '" + friendName + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			if (resultSet.next()) {
+//				out = "[ACKGETFRIENDPROFILE]:[" + resultSet.getString(1) + ", " + resultSet.getString(2) + ", "
+//						+ "" + resultSet.getString(3) + ", " + resultSet.getString(4) + "]";
+//				sendMsg(out);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealGetGroupList(String msg) {
-    	String out = null;
-    	String sql = "SELECT groupName FROM groupinfo WHERE groupMemberName = '" + username + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			while (resultSet.next()) {
-				out += "[ACKGETGROUPLIST]:[" + resultSet.getString(1) + "] ";
-			}
-			sendMsg(out);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String out = null;
+//    	String sql = "SELECT groupName FROM groupinfo WHERE groupMemberName = '" + username + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			while (resultSet.next()) {
+//				out += "[ACKGETGROUPLIST]:[" + resultSet.getString(1) + "] ";
+//			}
+//			sendMsg(out);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealGetFriendList(String msg) {
-    	String out = null;
-    	String sql = "SELECT friendsName FROM friends WHERE username = '" + username + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			while (resultSet.next()) {
-				out += "[ACKGETFRIENDLIST]:[" + resultSet.getString(1) + "] ";
-			}
-			sendMsg(out);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String out = null;
+//    	String sql = "SELECT friendsName FROM friends WHERE username = '" + username + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			while (resultSet.next()) {
+//				out += "[ACKGETFRIENDLIST]:[" + resultSet.getString(1) + "] ";
+//			}
+//			sendMsg(out);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealGetProfile(String msg) {
-    	String out = null;
-    	String sql = "SELECT sign FROM USERINFO WHERE username = '" + username + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			if (resultSet.next()) {
-				out = "[ACKGETPROFILE]:[" + resultSet.getString(1) + "]";
-				sendMsg(out);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String out = null;
+//    	String sql = "SELECT sign FROM USERINFO WHERE username = '" + username + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			if (resultSet.next()) {
+//				out = "[ACKGETPROFILE]:[" + resultSet.getString(1) + "]";
+//				sendMsg(out);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealProfile(String msg) {
     }
 
     private void dealGetDressUp(String msg) {
-    	String out = null;
-    	String sql = "SELECT avatar, background FROM USERINFO WHERE username = '" + username + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			if (resultSet.next()) {
-				out = "[ACKGETDRESSUP]:[" + resultSet.getString(1) + ", " + resultSet.getString(2) + "]";
-				sendMsg(out);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//    	String out = null;
+//    	String sql = "SELECT avatar, background FROM USERINFO WHERE username = '" + username + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			if (resultSet.next()) {
+//				out = "[ACKGETDRESSUP]:[" + resultSet.getString(1) + ", " + resultSet.getString(2) + "]";
+//				sendMsg(out);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
     }
 
     private void dealDressUp(String msg) {
-    	String acatarID = null;
-    	String backgroundID = null;
-    	String p = "\\[DRESSUP\\]:\\[(.*), (.*)\\]";
-    	Pattern pattern = Pattern.compile(p);
-    	Matcher matcher = pattern.matcher(msg);
-    	if (matcher.find()) {
-    		acatarID = matcher.group(1);
-    		backgroundID = matcher.group(2);
-    	}
-    	System.out.println(acatarID + "   " + backgroundID);
-    	String sql = "UPDATE USERINFO SET avatar =  " + acatarID + ", background = " + backgroundID +" WHERE username = '" + username + "'";
-    	try {
-			Statement statement = connection.createStatement();
-			if (statement.executeUpdate(sql) > 0) {
-				sendMsg("[ACKDRESSUP]:[1]");
-				return;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	sendMsg("[ACKDRESSUP]:[0]");
+//    	String acatarID = null;
+//    	String backgroundID = null;
+//    	String p = "\\[DRESSUP\\]:\\[(.*), (.*)\\]";
+//    	Pattern pattern = Pattern.compile(p);
+//    	Matcher matcher = pattern.matcher(msg);
+//    	if (matcher.find()) {
+//    		acatarID = matcher.group(1);
+//    		backgroundID = matcher.group(2);
+//    	}
+//    	System.out.println(acatarID + "   " + backgroundID);
+//    	String sql = "UPDATE USERINFO SET avatar =  " + acatarID + ", background = " + backgroundID +" WHERE username = '" + username + "'";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			if (statement.executeUpdate(sql) > 0) {
+//				sendMsg("[ACKDRESSUP]:[1]");
+//				return;
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//    	sendMsg("[ACKDRESSUP]:[0]");
     }
 
     private void dealRegister(String msg) {
     }
 
     private void dealLogin(String msg) {
-    	String iusername = null;
-    	String iPassword = null;
-    	
-    	String p = "\\[LOGIN\\]:\\[(.*), (.*)\\]";
-    	Pattern pattern = Pattern.compile(p);
-    	Matcher matcher = pattern.matcher(msg);
-    	if (matcher.find()) {
-    		iusername = matcher.group(1);
-    		iPassword = matcher.group(2);
-    	}
-    	String sql = "SELECT password FROM USERS WHERE username = '" + iusername + "';";
-    	try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
-			if (resultSet.next() && iPassword.equals(resultSet.getString(1)) ) {
-				sendMsg("[ACKLOGIN]:[1]");
-				this.username = iusername;
-				MainWindow.getMainWindow().setShowMsg(this.username + " login in!");
-				MainWindow.getMainWindow().addOnlineUsers(this.username);
-				socketMsg = new SocketMsg(this,  this.username);
-				ChatManager.getChatManager().add(socketMsg);
-				return ;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	sendMsg("[ACKLOGIN]:[0]");
+//    	String iusername = null;
+//    	String iPassword = null;
+//    	
+//    	String p = "\\[LOGIN\\]:\\[(.*), (.*)\\]";
+//    	Pattern pattern = Pattern.compile(p);
+//    	Matcher matcher = pattern.matcher(msg);
+//    	if (matcher.find()) {
+//    		iusername = matcher.group(1);
+//    		iPassword = matcher.group(2);
+//    	}
+//    	String sql = "SELECT password FROM USERS WHERE username = '" + iusername + "';";
+//    	try {
+//			Statement statement = connection.createStatement();
+//			ResultSet resultSet = statement.executeQuery(sql);
+//			if (resultSet.next() && iPassword.equals(resultSet.getString(1)) ) {
+//				sendMsg("[ACKLOGIN]:[1]");
+//				this.username = iusername;
+//				MainWindow.getMainWindow().setShowMsg(this.username + " login in!");
+//				MainWindow.getMainWindow().addOnlineUsers(this.username);
+//				socketMsg = new SocketMsg(this,  this.username);
+//				ChatManager.getChatManager().add(socketMsg);
+//				return ;
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//    	sendMsg("[ACKLOGIN]:[0]");
     }
     
     public String getAction(String msg) {	

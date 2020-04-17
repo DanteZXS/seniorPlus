@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     //前往login的button
     private Button btnLogin;
 
+    //button to welcome page
+    private Button btnWelcome;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnSighUp = findViewById(R.id.btnSignUp);
         chatMainBtn = findViewById(R.id.chat_main);
         btnLogin = findViewById(R.id.btnLogin);
+        btnWelcome = findViewById(R.id.btnWelcome);
 
 
         speechRecognizerBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        btnWelcome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AtyWelcome.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<TextView
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#ffa500"
+            android:text="Welcome to Family+!" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            android:scrollbars="none"
+        </androidx.viewpager.widget.ViewPager>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_indicator_dot1"
+                android:src="@drawable/selected"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+
+            <ImageView
+                android:id="@+id/iv_indicator_dot2"
+                android:src="@drawable/unselected"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+
+            <ImageView
+                android:id="@+id/iv_indicator_dot3"
+                android:src="@drawable/unselected"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_to_sign"
+            android:text="Sign Up"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+
+            android:background="#ffa500"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_to_login"
+            android:text="Sign In"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+
+            android:background="#ffa500"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

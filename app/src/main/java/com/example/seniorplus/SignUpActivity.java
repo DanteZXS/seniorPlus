@@ -98,30 +98,30 @@ public class SignUpActivity extends AppCompatActivity{
                                     "VALUES(" + "'"+username+"'" +", "+"'"+password+"'"+")";
                             stmt.executeUpdate(sql);
 
-                            //下面是获取指定用户(id=1)的好友id列表的代码
-                            Set<Integer> set = new HashSet<>();
-                            sql = "SELECT u1, u2 FROM seniorplus.friendship JOIN users ON friendship.u1 = users.id";
-                            re = stmt.executeQuery(sql);
-                            while(re.next()){
-                                if (re.getInt("u1")==1){
-                                    set.add(re.getInt("u2"));
-                                }
-                            }
-
-                            //接着找到他们的名字
-                            List<String> names = new ArrayList<>();
-                            sql = "select * from users";
-                            re = stmt.executeQuery(sql);
-                            while(re.next()){
-                                if (set.contains(re.getInt("id"))){
-                                    names.add(re.getString("username"));
-                                }
-                            }
-
-                            //查看好友列表
-                            for (int i = 0; i < names.size(); i++){
-                                Log.v("friends",names.get(i));
-                            }
+//                            //下面是获取指定用户(id=1)的好友id列表的代码
+//                            Set<Integer> set = new HashSet<>();
+//                            sql = "SELECT u1, u2 FROM seniorplus.friendship JOIN users ON friendship.u1 = users.id";
+//                            re = stmt.executeQuery(sql);
+//                            while(re.next()){
+//                                if (re.getInt("u1")==1){
+//                                    set.add(re.getInt("u2"));
+//                                }
+//                            }
+//
+//                            //接着找到他们的名字
+//                            List<String> names = new ArrayList<>();
+//                            sql = "select * from users";
+//                            re = stmt.executeQuery(sql);
+//                            while(re.next()){
+//                                if (set.contains(re.getInt("id"))){
+//                                    names.add(re.getString("username"));
+//                                }
+//                            }
+//
+//                            //查看好友列表
+//                            for (int i = 0; i < names.size(); i++){
+//                                Log.v("friends",names.get(i));
+//                            }
 
 
                         } catch (SQLException e) {

@@ -78,7 +78,10 @@ public class AndroidFlavorAdapter extends ArrayAdapter<Item> {
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_image);
         // Get the image resource ID from the current AndroidFlavor object and
         // set the image to iconView
-        iconView.setImageResource(R.drawable.donut);
+        iconView.setImageResource(currentAndroidFlavor.getUrl());
+
+        TextView textView = listItemView.findViewById(R.id.list_item_descrption);
+        textView.setText(currentAndroidFlavor.getDescption());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

@@ -32,11 +32,16 @@ public class DiaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ArrayList<Item> androidFlavors = new ArrayList<Item>();
-        androidFlavors.add(new Item(R.drawable.donut));
-        androidFlavors.add(new Item(R.drawable.donut));
-        androidFlavors.add(new Item(R.drawable.donut));
-        androidFlavors.add(new Item(R.drawable.donut));
-        androidFlavors.add(new Item(R.drawable.donut));
+        androidFlavors.add(new Item(R.drawable.donut, "Donut"));
+        androidFlavors.add(new Item(R.drawable.eclair, "eclair"));
+        androidFlavors.add(new Item(R.drawable.froyo, "froyo"));
+        androidFlavors.add(new Item(R.drawable.gingerbread, "gingerbread"));
+        androidFlavors.add(new Item(R.drawable.honeycomb, "honeycomb"));
+        androidFlavors.add(new Item(R.drawable.icecream, "icecream"));
+        androidFlavors.add(new Item(R.drawable.jellybean, "jellybean"));
+        androidFlavors.add(new Item(R.drawable.kitkat, "kitkat"));
+        androidFlavors.add(new Item(R.drawable.lollipop, "lollipop"));
+        androidFlavors.add(new Item(R.drawable.marshmallow, "marshmallow"));
         AndroidFlavorAdapter flavorAdapter = new AndroidFlavorAdapter(this.getActivity(), androidFlavors);
 
         // Get a reference to the ListView, and attach the adapter to the listView.

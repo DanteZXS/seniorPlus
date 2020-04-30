@@ -16,11 +16,11 @@
         <activity android:name=".ActivityChatMain" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SpeechRecognizerActivity" />
-        <activity android:name=".AtyWelcome">
+        <activity android:name=".MainActivity">
 
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".AtyWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

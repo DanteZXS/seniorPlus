@@ -70,7 +70,7 @@ public class ActivityChatMain extends AppCompatActivity {
                 tabList.get(tab.getPosition()).setIcon(ImageManager.imageID[tab.getPosition() + 4]);
                 tabLayout.setTabTextColors(
                         ContextCompat.getColor(ActivityChatMain.this, R.color.colorBlack),
-                        ContextCompat.getColor(ActivityChatMain.this, R.color.colorBlue)
+                        ContextCompat.getColor(ActivityChatMain.this, R.color.colorOrange)
                 );
             }
 
